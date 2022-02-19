@@ -1,31 +1,65 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import React from 'react';
+import { graphql } from 'gatsby';
+import { Hero, About, Classes, Gallery, Info } from '@views/home';
+import { Partners, CTA } from '@views';
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+const HomePage = ({ data }) => {
+  return (
+    <>
+      <Hero data={data} />
+      <About />
+      <Classes data={data} />
+      <Gallery data={data} />
+      <Info />
+      <Partners />
+      <CTA />
+    </>
+  );
+};
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-      <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-      <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
-  </Layout>
-)
+export default HomePage;
 
-export default IndexPage
+export const query = graphql`
+  {
+    image1: file(relativePath: { eq: "filler/image1.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, quality: 85)
+      }
+    }
+    image2: file(relativePath: { eq: "filler/image2.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, quality: 85)
+      }
+    }
+    image3: file(relativePath: { eq: "filler/image3.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, quality: 85)
+      }
+    }
+    image4: file(relativePath: { eq: "filler/image4.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, quality: 85)
+      }
+    }
+    image5: file(relativePath: { eq: "filler/image5.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, quality: 85)
+      }
+    }
+    image6: file(relativePath: { eq: "filler/image6.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, quality: 85)
+      }
+    }
+    image7: file(relativePath: { eq: "filler/image7.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, quality: 85)
+      }
+    }
+    image8: file(relativePath: { eq: "filler/image8.png" }) {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, quality: 85)
+      }
+    }
+  }
+`;
